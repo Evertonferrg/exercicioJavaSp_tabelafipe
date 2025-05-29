@@ -17,7 +17,7 @@ public class Principal {
     private ConsumoApi consumo = new ConsumoApi();
     private ConverteDados conversor = new ConverteDados();
 
-    private final String URL_BASE = "https://parallelum.com.br/fipe/api/v1/"; // <--- AQUI!
+    private final String URL_BASE = "https://parallelum.com.br/fipe/api/v1/"; // 
 
     public void exibeMenu(){
         var menu = """
@@ -34,7 +34,7 @@ public class Principal {
         String endereco;
 
         if (opcao.toLowerCase().contains("carr")) {
-            endereco = URL_BASE + "carros/marcas"; // <--- PROBLEMA AQUI PARA CARROS!
+            endereco = URL_BASE + "carros/marcas"; //
         } else if (opcao.toLowerCase().contains("mot")) {
             endereco = URL_BASE + "motos/marcas";
         } else {
@@ -51,7 +51,7 @@ public class Principal {
         System.out.println("Informe o codigo da marca para consulta");
         var codigoMarca = leitura.nextLine();
 
-        endereco = endereco + "/" + codigoMarca + "/modelos"; // <--- PROBLEMA AQUI TAMBÉM!
+        endereco = endereco + "/" + codigoMarca + "/modelos"; // 
         json = consumo.obterDados(endereco);
         var modeloLista = conversor.obterDados(json, Modelos.class);
 
